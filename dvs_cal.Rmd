@@ -1,0 +1,105 @@
+---
+title: "dvs_cal"
+author: "Joel Herndon"
+date: "9/11/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+First we create a dataframe of DVS workshops based on what was libCal at the begining of the fall 2017 semester.
+
+
+## Fall 2017
+```{r}
+dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("3442483", "3442549", "3442491", 
+"3442497", "3442510", "3442538", "3442542", "3433571", "3442555", 
+"3442551", "3442573", "3442576", "3442511", "3433537", "3444120", 
+"3442601", "3442613", "3442545", "3442643", "3433577", "3442422", 
+"3442505", "3443737", "3442642", "3442652", "3433956", "3433957"
+), date = structure(c(17420, 17421, 17421, 17422, 17423, 17427, 
+17429, 17429, 17434, 17435, 17436, 17438, 17441, 17442, 17452, 
+17455, 17456, 17456, 17457, 17458, 17458, 17463, 17463, 17477, 
+17479, 17569, 17598), class = "Date"), title = c("Intro to R: Data Transformations, Analysis, and Data Structures", 
+"Intro to ArcGIS Desktop", "Introduction to Effective Data Visualization", 
+"Data Management Fundamentals", "Easy Interactive Charts and Maps with Tableau", 
+"Reproducibility: Data Management, Git, and RStudio", "Data Visualization with Excel", 
+"Introduction to Stata", "Visualization in R using ggplot2", 
+"Writing a Data Management Plan", "Intro to QGIS", "Adobe Illustrator to Enhance Charts and Graphs", 
+"Mapping with R", "Increasing Openness and Reproducibility in Quantitative Research", 
+"Visualizing Qualitative Data", "Cloud Mapping Applications", 
+"Designing Infographics in PowerPoint", "Intro to R:  Data Transformations, Analysis, and Data Structures", 
+"Finding a Home for Your Data: An Introduction to Archives and Repositories", 
+"Introduction to Stata", "Developing Interactive Websites with R and Shiny", 
+"Consent, Data Sharing and Data Reuse", "Intro to ArcGIS Pro", 
+"Research Collaboration Strategies and Tools", "Tidy Data Visualization with Python", 
+"Introduction to Stata", "Introduction to Stata"), presenter = c("Joel Herndon & John Little", 
+"Mark Thomas", "Angela Zoss", "Jen Darragh, Mara Sedlins & Sophia Lafferty-Hess", 
+"Eric Monson", "Jen Darragh, John Little & Sophia Lafferty-Hess", 
+"Angela Zoss", "Ryan Denniston", "Angela Zoss", "Jen Darragh & Sophia Lafferty-Hess", 
+"Mark Thomas", "Eric Monson", "John Little & Mark Thomas", "Center for Open Science", 
+"Angela Zoss", "Mark Thomas", "Eric Monson", "Joel Herndon & John Little", 
+"Jen Darragh, Mara Sedlins & Sophia Lafferty-Hess", "Ryan Denniston", 
+"Joel Herndon", "Jen Darragh", "Mark Thomas", "Jen Darragh, Mara Sedlins & Sophia Lafferty-Hess", 
+"Eric Monson", "Ryan Denniston", "Ryan Denniston"), workshop_duration_minutes = c(120, 
+120, 60, 120, 120, 120, 120, 120, 120, 60, 120, 120, 120, 180, 
+90, 120, 120, 120, 120, 120, 120, 60, 120, 120, 120, 120, 120
+), workshop_begins = structure(c(1505151000, 1505224800, 1505235600, 
+1505322000, 1505408400, 1505755800, 1505914200, 1505926800, 1506358800, 
+1506452400, 1506531600, 1506690000, 1506965400, 1507035600, 1507901400, 
+1508173200, 1508247000, 1508261400, 1508349600, 1508421600, 1508434200, 
+1508864400, 1508864400, 1510077600, 1510250400, 1518026400, 1520521200
+), tzone = "America/New_York", class = c("POSIXct", "POSIXt")), 
+    workshop_ends = structure(c(1505158200, 1505232000, 1505239200, 
+    1505329200, 1505415600, 1505763000, 1505921400, 1505934000, 
+    1506366000, 1506456000, 1506538800, 1506697200, 1506972600, 
+    1507046400, 1507906800, 1508180400, 1508254200, 1508268600, 
+    1508356800, 1508428800, 1508441400, 1508868000, 1508871600, 
+    1510084800, 1510257600, 1518033600, 1520528400), tzone = "America/New_York", class = c("POSIXct", 
+    "POSIXt")), description = c("A gentle introduction to the basics of R using RStudio.  Learn about managing your R projects, data types, variable assignments, data structures, and packages such as tidyverse (dplyR) and ggvis.", 
+    "Do you want to find out how geographic information (GIS) software can aid your research? This class will provide an overview of how ArcGIS Desktop software can help you analyze or visualize digital data that has a locational component, as well as discuss starting points for obtaining data. Examples will focus on social science data, but attendees are encouraged to ask questions regarding their own needs and will be welcome to make one-on-one appointments later for more focused instruction.", 
+    "Data visualization is an increasingly important skill for researchers in all disciplines, but design skills are seldom taught explicitly.  This talk will focus on a few basic design principles than can help you improve your visualizations, regardless of your discipline or choice of software.  We will cover effective design choices for visualization and how to get started when visualizing your data.", 
+    "This workshop introduces data management practices to consider throughout the research lifecycle: planning, organization, documentation, storage and backup, sharing, citation, and preservation. The workshop will offer an overview of general recommendations that are relevant across disciplines and will point attendees to additional resources at Duke and beyond.", 
+    "Tableau Public (available for both Windows and Mac) is free software that allows individuals to quickly and easily explore their data with a wide variety of visual representations, as well as create interactive web-based visualization dashboards. This workshop will focus on using Tableau Public to create data visualizations, starting with an overview of how the program thinks about data, common data manipulation and loading, and the terminology used. Activities will include a sample data visualization and mapping project, which will give people hands-on experience using Tableau’s basic chart types and dashboard creation tools. We will also discuss publishing to the Tableau Public web server and related services and tools, like the full Tableau Desktop application (free for full-time students).", 
+    "In response to a growing focus on the importance of reproducibility, replication, and transparency in the research endeavor, scholars are adapting their practices and learning new skills and tools. This workshop will introduce some general data management strategies that can increase the reproducibility of your work. You will also learn through hands-on exercises how to harness two specific tools, git and RStudio, to support the execution of more reproducible research projects. Git is a powerful version control system and RStudio is an open-source statistical software program. No previous experience with Git or R is required for this workshop.", 
+    "For many basic charts and graphs, Excel is one of the easiest ways to create a data visualization.  Figuring out how to get Excel to produce exactly the chart you want, however, can be a bit of a headache.  In this workshop, we will learn how to create and modify many different charts within Excel, in addition to learning how PivotTables can help arrange the data in the best way for the chart we want.", 
+    "Stata for Research focuses on the core concepts of using Stata. This workshop provides a hands on overview of how to load, manage, and analyze data using Stata. The workshop will also include a brief introduction to Stata graphics as well. No previous experience with Stata is required.", 
+    "Data science skills are increasingly important for research and industry projects.  With complex data science projects, however, come complex needs for understanding and communicating analysis processes and results.  Ultimately, an analyst's data science toolbox is incomplete without visualization skills.  Incorporating effective visualizations directly into the analysis tool you are using can facilitate quick data exploration, streamline your research process, and improve the reproducibility of your research.", 
+    "This workshop will be a deep dive into the process of writing a data management plan (DMP) using the DMPTool. To make the most of this workshop, attendees are encouraged to bring a “live” DMP that they are ready to begin or are currently in the process of writing.  Attendees without active DMPs may write a “test” DMP based on who they would typically apply to for research funding.  The “test” DMP can then serve as a useful reference when it is time to write a live plan. The instructors (both Research Data Management Consultants) will be on-hand to provide individual help during the writing portion of the workshop as needed and, following the workshop, are available to review plans through the DMPTool at any point up to final submission. ", 
+    "Looking for an open source option for GIS? QGIS is free and it is one alternative to using ArcGIS. In this workshop we will demonstrate how to import and analyze data in QGIS and discuss the benefits of using QGIS over other GIS software. In the process, we'll go over some general GIS concepts such as layers, types of GIS files, and projections.", 
+    "In this workshop, you will learn the basics of using Adobe Illustrator, the professional standard in vector graphics software, for fine-tuning charts and graphs created in other programs like Excel, Matlab and R. Many people avoid using Illustrator because of its steep learning curve, but you will see that once you know a few basic tools, it is quite easy to give all your work a consistent look, extra highlights and annotations, and that professional edge. There are no prerequisites – we will start with the basics. (Note that the material presented here is a more complete and expanded treatment of the last section of my previous Illustrator workshops where chart modification always got squeezed into the last half-hour, which was not enough time.)", 
+    "R has become a popular mapping option for those who want to easily switch between spatial and statistical analysis and reproduce/share the code easily.  This workshop will demonstrate how to import and view shapefiles, run statistical analysis, and create a leaflet map which can be used online.  Prerequisites: Intro to R: Data Transformations, Analysis, and Data Structures.  Please attend this workshop or watch the video. Knowledge of GIS concepts is recommended.", 
+    "There are many actions researchers can take to increase the openness and reproducibility of their work. Please join us for a workshop, hosted by the Center for Open Science, to learn easy, practical steps researchers can take to increase the reproducibility of their work. The workshop will be hands-on. Using example studies, attendees will actively participate in creating a reproducible project from start to finish. Topics covered include project documentation, version control, pre-analysis plans, and open source tools like the Open Science Framework.", 
+    "So many of the tools that have been developed for data visualization focus on data that are in spreadsheet format, especially data that are number-heavy.  For qualitative research, numerical data may not be the primary focus, or the numerical data may be difficult to visualize for other reasons.  This workshop will explore some of the complications of trying to visualize qualitative data, walking through examples of different types of qualitative data projects and the visualizations that have been produced from those projects.  Exercises will help attendees work through the process of developing visualizations for sample qualitative projects.  The workshop will include recommendations for tools that may be useful, but we will focus more on the process of identifying possible visual elements within a qualitative data project than on a specific software application.", 
+    "Compare and contrast several products intended for geospatial visualization (e.g., a map to embed in a blog or PowerPoint, or for a poster session) and, in some cases, for GIS data analysis.  We'll focus on ArcGIS Online, which is a companion to the ArcGIS client that allows members of a group to store and share spatial data online, and that can be used independently or in conjunction with the ArcGIS client.  Also, we'll touch on several other cloud-based options for creating simple maps for sharing.", 
+    "The “infographics” style of presenting information and telling visual stories is popular both for internal reporting and for trying to reach and teach the general public. There are many desktop and online tools that can be used to compose static infographics, but we will focus on Microsoft PowerPoint because so many people have free access to it on campus and already have some comfort with it as a visual communications tool. This workshop will give a brief introduction to graphic design and storytelling principles, as well as hands-on practice with using PowerPoint to create icons and other vector shapes to combine with text and visualizations to tell compelling and eye-catching data stories. There are no prerequisites, but some experience using PowerPoint will be helpful.", 
+    "A gentle introduction to the basics of R using RStudio.  Learn about managing your R projects, data types, variable assignments, data structures, and packages such as tidyverse (dplyR) and ggvis.", 
+    "Publishing and preserving research data within a trusted repository helps researchers comply with funder and journal data sharing policies, supports the discovery of and access to data, and can result in more visibility and higher impact for research projects. This workshop will provide an overview of the different types of repositories and the overall role of repositories within the data sharing landscape. Key repositories in various disciplines will be explored, and attendees will learn about resources for locating and assessing repositories. Attendees will also have an opportunity to locate appropriate repositories for their own research. ", 
+    "Stata for Research focuses on the core concepts of using Stata. This workshop provides a hands on overview of how to load, manage, and analyze data using Stata. The workshop will also include a brief introduction to Stata graphics as well. No previous experience with Stata is required.", 
+    "Learn how to leverage your knowledge of R and RMarkdown to create compelling, interactive website and interactive documents using the Shiny web application framework.  Shiny makes it easy to transition from desktop based analysis and visualizations to interactive websites without having to learn HTML, CSS, and javascript.  This workshop provides an overview of the shiny framework along with examples and exercises designed to build confidence in developing shiny based documents and websites.  ", 
+    "Research involving humans requires multiple approaches to protect participants’ anonymity. If you are planning to (or are required to) share your human subjects’ data outside of your original project team, or plan to re-use data you collected previously for a new research project, you will need to design a consent form/consent protocol that properly addresses these situations.  This workshop will present various research scenarios with examples of how consent protocols should be developed.", 
+    "ArcGIS Pro is a newly designed interface to the tried-and-true ArcGIS desktop software. It has essentially the same functions, but with more of a MS-Office interface. As a native 64-bit program, it also has superior performance. There are a few nice feature enhancements such as multiple layouts in a single project.  It's more fully integrated with ArcGIS Online, and users will need to have created an Duke ArcGIS Online account. An administrator will activate your ArcGIS Pro license after you've created an ArcGIS Online account.", 
+    "Scholars increasingly work on collaborative research projects. Collaborative projects often bring together partners across disciplines, institutions, and sectors. These projects present opportunities for innovation but also raise challenges for the development of efficient and effective workflows and the management of data. This workshop will examine considerations for collaborative research and present some strategies for developing and documenting workflows as well as methods for storing and sharing data. We will also look at some tools (i.e., Box, OSF, PRDN, etc.) available at Duke that can be used to support these types of projects. ", 
+    "Python can be a great option for exploration, analysis and visualization of tabular data, like spreadsheets and CSV files, if you know which tools to use and how to get started. This workshop will take you through some practical examples of using Python and the Pandas module inside a Jupyter notebook, to load data, transform it into a standard “tidy” format, and visualize it with Seaborn (or another similar module). There are no prerequisites for this workshop – familiarity with the Python programming language is not required, but you will probably find it easier to follow if you have a little coding experience since we will not be giving an overview of the language itself. Instead, the focus will be on learning how to use the language through conceptual understanding and recipes for specific, commonly-useful tasks.", 
+    "Stata for Research focuses on the core concepts of using Stata. This workshop provides a hands on overview of how to load, manage, and analyze data using Stata. The workshop will also include a brief introduction to Stata graphics as well. No previous experience with Stata is required.", 
+    "Stata for Research focuses on the core concepts of using Stata. This workshop provides a hands on overview of how to load, manage, and analyze data using Stata. The workshop will also include a brief introduction to Stata graphics as well. No previous experience with Stata is required."
+    ), registration_link = c("http://duke.libcal.com/event/3442483", 
+    "http://duke.libcal.com/event/3442549", "http://duke.libcal.com/event/3442491", 
+    "http://duke.libcal.com/event/3442497", "http://duke.libcal.com/event/3442510", 
+    "http://duke.libcal.com/event/3442538", "http://duke.libcal.com/event/3442542", 
+    "http://duke.libcal.com/event/3433571", "http://duke.libcal.com/event/3442555", 
+    "http://duke.libcal.com/event/3442551", "http://duke.libcal.com/event/3442573", 
+    "http://duke.libcal.com/event/3442576", "http://duke.libcal.com/event/3442511", 
+    "http://duke.libcal.com/event/3433537", "http://duke.libcal.com/event/3444120", 
+    "http://duke.libcal.com/event/3442601", "http://duke.libcal.com/event/3442613", 
+    "http://duke.libcal.com/event/3442545", "http://duke.libcal.com/event/3442643", 
+    "http://duke.libcal.com/event/3433577", "http://duke.libcal.com/event/3442422", 
+    "http://duke.libcal.com/event/3442505", "http://duke.libcal.com/event/3443737", 
+    "http://duke.libcal.com/event/3442642", "http://duke.libcal.com/event/3442652", 
+    "http://duke.libcal.com/event/3433956", "http://duke.libcal.com/event/3433957"
+    )), .Names = c("workshop_id", "date", "title", "presenter", 
+"workshop_duration_minutes", "workshop_begins", "workshop_ends", 
+"description", "registration_link"), class = c("tbl_df", "tbl", 
+"data.frame"), row.names = c(NA, -27L))
+```
