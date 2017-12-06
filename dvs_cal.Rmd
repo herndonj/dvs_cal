@@ -11,8 +11,10 @@ knitr::opts_chunk$set(echo = TRUE)
 First we create a dataframe of DVS workshops based on what was libCal at the begining of the fall 2017 semester.
 
 
+
 ## Fall 2017
 ```{r}
+library(readr)
 dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("3442483", "3442549", "3442491", 
 "3442497", "3442510", "3442538", "3442542", "3433571", "3442555", 
 "3442551", "3442573", "3442576", "3442511", "3433537", "3444120", 
@@ -102,4 +104,6 @@ dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("344248
 "workshop_duration_minutes", "workshop_begins", "workshop_ends", 
 "description", "registration_link"), class = c("tbl_df", "tbl", 
 "data.frame"), row.names = c(NA, -27L))
+
+#write_delim(dvs_workshops_fall2017_master_20170901, path = ".", delim = "\t")
 ```
