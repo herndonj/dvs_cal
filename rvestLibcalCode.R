@@ -1,6 +1,8 @@
 # This code uses rvest to pull in the current list of DVS workshops
 library(rvest)
+library(stringr)
 library(lubridate)
+library(tibble)
 dvs_cal <- read_html("https://api3.libcal.com/api_events.php?iid=971&m=upc&cid=3819&c=&d=25858&l=50&target=_blank")
 
 ntitle <- html_nodes(dvs_cal, ".s-lc-ea-ttit a")
@@ -52,3 +54,8 @@ workshop_duration <- (workshop_ends - workshop_begins)
 workshop_duration_minutes <- as.numeric(workshop_duration)*60
 
 dvs_cal_tbl<- tibble(workshop_id,date,title,presenter,workshop_duration_minutes,workshop_begins,workshop_ends,description,registration_link, location)
+
+# until someone tips me off on how to get readr to send out formatted times for EST...
+#dvs_cal_tbl$start_time <- toString(dvs_cal_tbl$workshop_begins)
+#dvs_cal_tbl$end_time <- toString(dvs_cal_tbl$workshop_ends)
+

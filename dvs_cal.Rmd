@@ -8,12 +8,12 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-First we create a dataframe of DVS workshops based on what was libCal at the begining of the fall 2017 semester.
+First we create a data frame of DVS workshops based on what was libCal at the begining of the fall 2017 semester.
 
 
 
 ## Fall 2017
-```{r}
+```{r Fall 2017 data frame}
 library(readr)
 dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("3442483", "3442549", "3442491", 
 "3442497", "3442510", "3442538", "3442542", "3433571", "3442555", 
@@ -107,3 +107,108 @@ dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("344248
 
 #write_delim(dvs_workshops_fall2017_master_20170901, path = ".", delim = "\t")
 ```
+
+
+#Spring 2018
+
+```{r Spring 2018 data frame}
+library(readr)
+dvs_workshops_spring_2018_master_20180105 <- structure(list(workshop_id = c("3735183", "3735186", "3734408", 
+"3742605", "3820621", "3731617", "3820640", "3734428", "3735226", 
+"3734431", "3735232", "3743063", "3735207", "3742735", "3433956", 
+"3735229", "3731660", "3770373", "3869275", "3731669", "3735220", 
+"3735957", "3433957", "3776408", "3735965"), date = structure(c(17543, 
+17547, 17550, 17553, 17554, 17555, 17556, 17556, 17557, 17560, 
+17561, 17562, 17563, 17567, 17569, 17571, 17576, 17581, 17583, 
+17588, 17596, 17597, 17598, 17618, 17625), class = "Date"), title = c("Easy Charts and Maps with Tableau", 
+"Introduction to Effective Data Visualization", "Intro to R: Data Transformations, Analysis, and Data Structures", 
+"Intro to QGIS", "R Markdown", "Data Management Fundamentals", 
+"Shiny", "Mapping with R", "Infographics in PowerPoint", "Reproducibility: Data Management, Git, and RStudio", 
+"Adobe Illustrator for Diagrams", "Story Maps with ArcGIS Online", 
+"Visualization in R using ggplot2", "Intro to ArcGIS Pro", "Introduction to Stata", 
+"Custom Interactive Diagrams in LucidChart", "Introduction to the Open Science Framework", 
+"Map Design", "Getting Started with NVivo 11 for Windows", "OSF + TIER Protocol: Designing a reproducible workflow", 
+"Designing Effective Academic Posters", "Developing a Good Informed Consent Process", 
+"Introduction to Stata", "Publishing Data with Research and Other Strategies for Increasing Your Impact", 
+"Managing Sensitive Data"), presenter = c("Eric Monson", "Angela Zoss", 
+"Joel Herndon & John Little", "Mark Thomas", "Dr. Mine Çetinkaya-Rundel", 
+"Jen Darragh, Mara Sedlins & Sophia Lafferty-Hess", "Dr. Mine Çetinkaya-Rundel", 
+"John Little", "Eric Monson", "John Little & Sophia Lafferty-Hess", 
+"Eric Monson", "Drew Keener", "Angela Zoss", "Mark Thomas", "Ryan Denniston", 
+"Angela Zoss", "Mara Sedlins & Sophia Lafferty-Hess", "Drew Keener", 
+"Brittany Wofford & Mara Sedlins", "Mara Sedlins & Sophia Lafferty-Hess", 
+"Angela Zoss & Eric Monson", "Jen Darragh, Holly Williams-Stafford", 
+"Ryan Denniston", "Haley Walton, Mara Sedlins & Sophia Lafferty-Hess", 
+"Jen Darragh & Mara Sedlins & Andy Ingham, & Holly Williams-Stafford"
+), workshop_duration_minutes = c(120, 60, 120, 120, 120, 120, 
+120, 120, 120, 120, 120, 120, 120, 120, 120, 120, 60, 90, 90, 
+120, 120, 120, 120, 120, 90), workshop_begins = structure(c(1515765600, 
+1516122000, 1516384800, 1516633200, 1516716000, 1516816800, 1516888800, 
+1516903200, 1516975200, 1517248800, 1517320800, 1517421600, 1517495400, 
+1517853600, 1518026400, 1518184800, 1518620400, 1519065000, 1519243200, 
+1519668000, 1520344800, 1520449200, 1520521200, 1522260000, 1522861200
+), tzone = "America/New_York", class = c("POSIXct", "POSIXt")), 
+    workshop_ends = structure(c(1515772800, 1516125600, 1516392000, 
+    1516640400, 1516723200, 1516824000, 1516896000, 1516910400, 
+    1516982400, 1517256000, 1517328000, 1517428800, 1517502600, 
+    1517860800, 1518033600, 1518192000, 1518624000, 1519070400, 
+    1519248600, 1519675200, 1520352000, 1520456400, 1520528400, 
+    1522267200, 1522866600), tzone = "America/New_York", class = c("POSIXct", 
+    "POSIXt")), description = c("Tableau Public (available for both Windows and Mac) is free software that allows individuals to quickly and easily explore their data with a wide variety of visual representations, as well as create interactive web-based visualization dashboards. This workshop will focus on using Tableau Public to create data visualizations, starting with an overview of how the program thinks about data, common data manipulation and loading, and the terminology used. Activities will include a sample data visualization and mapping project, which will give people hands-on experience using Tableau’s basic chart types and dashboard creation tools. We will also discuss publishing to the Tableau Public web server and related services and tools, like the full Tableau Desktop application (free for full-time students).", 
+    "Data visualization is an increasingly important skill for researchers in all disciplines, but design skills are seldom taught explicitly.  This talk will focus on a few basic design principles than can help you improve your visualizations, regardless of your discipline or choice of software.  We will cover effective design choices for visualization and how to get started when visualizing your data.", 
+    "A gentle introduction to the basics of R using RStudio.  Learn about managing your R projects, data types, variable assignments, data structures, and packages such as tidyverse (dplyR) and ggvis.", 
+    "Looking for an open source option for GIS? QGIS is free and it is one alternative to using ArcGIS. In this workshop we will demonstrate how to import and analyze data in QGIS and discuss the benefits of using QGIS over other GIS software. In the process, we'll go over some general GIS concepts such as layers, types of GIS files, and projections.", 
+    "R Markdown provides an authoring framework for data science. You can use a single R Markdown file to both save and execute code or generate high quality reports that can be shared with an audience. This hands-on workshop will demonstrate the how to create fully reproducible static and dynamic R Markdown reports in a variety of output formats and will provide tips and tricks for customization.", 
+    "This workshop introduces data management practices to consider throughout the research lifecycle: planning, organization, documentation, storage and backup, sharing, citation, and preservation. The workshop will offer an overview of general recommendations that are relevant across disciplines and will point attendees to additional resources at Duke and beyond.", 
+    "Shiny is an R package that makes it easy to build interactive web apps straight from R. You can host standalone apps on a webpage or embed them in R Markdown documents or build dashboards. This workshop will introduce you to the basics of building web applications with Shiny, essentials of reactive programming, and how to customize and deploy your apps for others to use.", 
+    "R has become a popular and reproducible option for supporting spatial and statistical analysis. This hands-on workshop will demonstrate how to plot x/y coordinates; how to generate thematic chloropleths with US Census and other federal data; import, view and produce shapefiles; and create leaflet maps for viewing on the web.", 
+    "The “infographics” style of presenting information and telling visual stories is popular both for internal reporting and for trying to reach and teach the general public. There are many desktop and online tools that can be used to compose static infographics, but we will focus on Microsoft PowerPoint because so many people have free access to it on campus and already have some comfort with it as a visual communications tool. This workshop will give a brief introduction to graphic design and storytelling principles, as well as hands-on practice with using PowerPoint to create icons and other vector shapes to combine with text and visualizations to tell compelling and eye-catching data stories. There are no prerequisites, but some experience using PowerPoint will be helpful.", 
+    "In response to a growing focus on the importance of reproducibility, replication, and transparency in the research endeavor, scholars are adapting their practices and learning new skills and tools. This workshop will introduce some general data management strategies that can increase the reproducibility of your work. You will also learn through hands-on exercises how to harness two specific tools, git and RStudio, to support the execution of more reproducible research projects. Git is a powerful version control system and RStudio is an open-source statistical software program. ", 
+    "In this workshop, you will learn the basics of using Adobe Illustrator, the professional standard in vector graphics software for creating diagrams and infographics. Many people avoid using it because of its steep learning curve, but you will see that it is quite easy to combine simple shapes to create interesting and clear diagrams, and to give all your work that professional edge. There are no prerequisites.", 
+    "ArcGIS Online is a companion to the ArcGIS client that allows members of a group to store and share spatial data online and to perform GIS analysis in a browser environment. It can be used independently or in conjunction with an ArcGIS client. We'll focus on its Story Maps, which provide a way to disseminate a finished product in an interactive web interface. The audience doesn't need to know or have access to any ArcGIS products. Story Maps allow the integration of other media (photos, text, videos) and allow following changes over space and time.", 
+    "Data science skills are increasingly important for research and industry projects.  With complex data science projects, however, come complex needs for understanding and communicating analysis processes and results.  Ultimately, an analyst's data science toolbox is incomplete without visualization skills.  Incorporating effective visualizations directly into the analysis tool you are using can facilitate quick data exploration, streamline your research process, and improve the reproducibility of your research.", 
+    "ArcGIS Pro is a newly designed interface to the tried-and-true ArcGIS desktop software. It has essentially the same functions, but with more of a MS-Office interface. As a native 64-bit program, it also has superior performance. There are a few nice feature enhancements such as multiple layouts in a single project.  It's more fully integrated with ArcGIS Online, and users will need to have created an Duke ArcGIS Online account. An administrator will activate your ArcGIS Pro license after you've created an ArcGIS Online account.", 
+    "Stata for Research focuses on the core concepts of using Stata. This workshop provides a hands on overview of how to load, manage, and analyze data using Stata. The workshop will also include a brief introduction to Stata graphics as well. No previous experience with Stata is required.", 
+    "Diagrams, a type of visualization that focuses on shapes and connectors, can be used to visualize a structure, process, or concept.  Diagrams can be created in any standard graphic design or drawing programs, but there are only a few general diagramming tools that are specially designed to assist with spacial arrangement and shape choice, and many of those tools focus on creating static, print-based diagrams. LucidChart, available to members of the Duke community, can create engaging diagrams with interactive components that can be shared and embedded online. ", 
+    "The Open Science Framework (OSF) is a free, open source project management tool developed and maintained by the Center for Open Science. The OSF can help scholars manage their workflow, organize their materials, and share all or part of a project with the broader research community. This workshop will demonstrate some of the key functionalities of the tool including how to structure your materials, manage permissions, version content, integrate with third-party tools (such as Box, GitHub, or Mendeley), share materials, register projects, and track usage. ", 
+    "Making maps is a creative rather than a purely technical process. Even if you can expertly use the latest and most advanced tools, you still have to make design decisions based on your specific audience, data, and goals. This workshop will present an overview of concepts in cartography and provide practical techniques for creating effective, visually appealing maps. We will explore design principles by analyzing plenty of examples. No specific software experience or GIS knowledge is required.", 
+    "This workshop will introduce researchers to the basics of NVivo 11 Pro for Windows, a qualitative data analysis software. Participants will learn the foundations needed to begin analyzing data in NVivo. Topics will include how to import data, create nodes and code, and  run basic queries. Although Mac users are welcome to attend, this workshop will primarily focus on using NVivo in the Windows environment, though we will discuss some of the differences between the two versions of the software.", 
+    "The Open Science Framework is a free online system for managing and sharing research materials throughout the research cycle, and the TIER Protocol is a workflow for maintaining well-organized documentation of your data and analyses. This workshop will introduce you to key features of the OSF and demonstrate how it can be used in conjunction with TIER to facilitate reproducible research practices, collaboration, and best practices in data management.", 
+    "Presenting research in an accurate and visually appealing way can have a huge impact on the communication of research to a broader audience. Academic posters are some of the most visual outputs of a research project, and becoming familiar with good strategies for poster design allows researchers to take full advantage of the opportunity to network with colleagues and promote their own research. This workshop will cover basic considerations for designing effective academic posters, including use of color, layout, fonts/typography, and software choices. Hands-on activities throughout the workshop will also help participants gain comfort with how to apply general principles to the design of a real poster.  This workshop will focus on PowerPoint for poster creation, but many of the techniques will apply to more powerful programs like Adobe Illustrator.", 
+    "In this forum you will learn how to develop fully comprehensible, participant-friendly consent protocols. With numerous research funders and journal publishers requiring data management and sharing plans, consent forms and protocols need to address how participant privacy will be protected throughout a project’s lifecycle and how and what data will be shared. The workshop includes interactive exercises where you will assess consent form language to ensure that it is appropriate for the target study population and addresses data sharing in a responsible way. ", 
+    "Stata for Research focuses on the core concepts of using Stata. This workshop provides a hands on overview of how to load, manage, and analyze data using Stata. The workshop will also include a brief introduction to Stata graphics as well. No previous experience with Stata is required.", 
+    "Scholars can and do communicate their research in various ways. While peer-reviewed journal publications remain the primary outlet for sharing the key results of research projects, there are growing norms (and expectations) that the underlying data from projects should also be published. In this workshop, we will look at 1) strategies to effectively publish data; 2) journal policies related to data sharing; 3) new types of publications such as data articles and registered reports; and 4) strategies for increasing and measuring the impact of your research. There will also be a hands-on portion of the workshop where participants will create their own ORCID identifier. ", 
+    "In the course of your research you may collect, interact with or analyze data that are classified as “Sensitive” or \"Restricted\" according to Duke's data classification standard. In this workshop we will examine common sensitive data types, how Duke’s IRB and Information Technology Security Office (ITSO) expects you to protect that data throughout your project’s lifecycle and the resources available to you for sensitive data storage and analysis, data de-identification, and data archiving and sharing."
+    ), registration_link = c("https://duke.libcal.com/event/3735183", 
+    "https://duke.libcal.com/event/3735186", "https://duke.libcal.com/event/3734408", 
+    "https://duke.libcal.com/event/3742605", "https://duke.libcal.com/event/3820621", 
+    "https://duke.libcal.com/event/3731617", "https://duke.libcal.com/event/3820640", 
+    "https://duke.libcal.com/event/3734428", "https://duke.libcal.com/event/3735226", 
+    "https://duke.libcal.com/event/3734431", "https://duke.libcal.com/event/3735232", 
+    "https://duke.libcal.com/event/3743063", "https://duke.libcal.com/event/3735207", 
+    "https://duke.libcal.com/event/3742735", "https://duke.libcal.com/event/3433956", 
+    "https://duke.libcal.com/event/3735229", "https://duke.libcal.com/event/3731660", 
+    "https://duke.libcal.com/event/3770373", "https://duke.libcal.com/event/3869275", 
+    "https://duke.libcal.com/event/3731669", "https://duke.libcal.com/event/3735220", 
+    "https://duke.libcal.com/event/3735957", "https://duke.libcal.com/event/3433957", 
+    "https://duke.libcal.com/event/3776408", "https://duke.libcal.com/event/3735965"
+    ), location = c("Bostock 023 Training Room", "Perkins 217", 
+    "Bostock 023 Training Room", "Bostock 023 Training Room", 
+    "Bostock 023 Training Room", "Perkins 217", "Bostock 023 Training Room", 
+    "Bostock 023 Training Room", "Bostock 023 Training Room", 
+    "Bostock 127 (The Edge Workshop Room)", "Bostock 023 Training Room", 
+    "Perkins 218", "Bostock 023 Training Room", "Bostock 023 Training Room", 
+    "Bostock 023 Training Room", "Bostock 023 Training Room", 
+    "Bostock 023 Training Room", "Perkins 218", "Bostock 023 Training Room", 
+    "Bostock 023 Training Room", "Bostock 023 Training Room", 
+    "Perkins 217", "Bostock 023 Training Room", "Perkins 217", 
+    "Perkins 217")), .Names = c("workshop_id", "date", "title", 
+"presenter", "workshop_duration_minutes", "workshop_begins", 
+"workshop_ends", "description", "registration_link", "location"
+), class = c("tbl_df", "tbl", "data.frame"), row.names = c(NA, 
+-25L))
+
+#write_delim(dvs_workshops_spring_2018_master_20180105, path = ".", delim = "\t")
+```
+
+
