@@ -55,7 +55,7 @@ workshop_duration_minutes <- as.numeric(workshop_duration)*60
 
 dvs_cal_tbl<- tibble(workshop_id,date,title,presenter,workshop_duration_minutes,workshop_begins,workshop_ends,description,registration_link, location)
 
-# until someone tips me off on how to get readr to send out formatted times for EST...
+# until I find a code example on how to get readr to export formatted times for EST outside of R...
 #dvs_cal_tbl$start_time <- toString(dvs_cal_tbl$workshop_begins)
 #dvs_cal_tbl$end_time <- toString(dvs_cal_tbl$workshop_ends)
 
