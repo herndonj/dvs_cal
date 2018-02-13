@@ -8,13 +8,19 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+```{r}
+library(here)
+library(tidyverse)
+```
+
+
 First we create a data frame of DVS workshops based on what was libCal at the begining of the fall 2017 semester.
 
 
 
 ## Fall 2017
 ```{r Fall 2017 data frame}
-library(readr)
 dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("3442483", "3442549", "3442491", 
 "3442497", "3442510", "3442538", "3442542", "3433571", "3442555", 
 "3442551", "3442573", "3442576", "3442511", "3433537", "3444120", 
@@ -112,7 +118,6 @@ dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("344248
 #Spring 2018
 
 ```{r Spring 2018 data frame}
-library(readr)
 dvs_workshops_spring_2018_master_20180105 <- structure(list(workshop_id = c("3735183", "3735186", "3734408", 
 "3742605", "3820621", "3731617", "3820640", "3734428", "3735226", 
 "3734431", "3735232", "3735207", "3742735", "3433956", "3735229", 
