@@ -8,13 +8,19 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+```{r}
+library(here)
+library(tidyverse)
+```
+
+
 First we create a data frame of DVS workshops based on what was libCal at the begining of the fall 2017 semester.
 
 
 
 ## Fall 2017
 ```{r Fall 2017 data frame}
-library(readr)
 dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("3442483", "3442549", "3442491", 
 "3442497", "3442510", "3442538", "3442542", "3433571", "3442555", 
 "3442551", "3442573", "3442576", "3442511", "3433537", "3444120", 
@@ -112,22 +118,21 @@ dvs_workshops_fall2017_master_20170901 <- structure(list(workshop_id = c("344248
 #Spring 2018
 
 ```{r Spring 2018 data frame}
-library(readr)
 dvs_workshops_spring_2018_master_20180105 <- structure(list(workshop_id = c("3735183", "3735186", "3734408", 
 "3742605", "3820621", "3731617", "3820640", "3734428", "3735226", 
 "3734431", "3735232", "3735207", "3742735", "3433956", "3735229", 
-"3731660", "3905863", "3770373", "3869275", "3731669", "3735220", 
+"3731660", "3905863", "3770373", "3869275", "3731669", "3997795", "3735220", 
 "3735957", "3433957", "3776408", "3735965"), date = structure(c(17543, 
 17547, 17550, 17553, 17554, 17555, 17556, 17556, 17557, 17560, 
 17561, 17563, 17567, 17569, 17571, 17576, 17576, 17581, 17583, 
-17588, 17596, 17597, 17598, 17618, 17625), class = "Date"), title = c("Easy Charts and Maps with Tableau", 
+17588, 17590, 17596, 17597, 17598, 17618, 17625), class = "Date"), title = c("Easy Charts and Maps with Tableau", 
 "Introduction to Effective Data Visualization", "Intro to R: Data Transformations, Analysis, and Data Structures", 
 "Intro to QGIS", "R Markdown", "Data Management Fundamentals", 
 "Shiny", "Mapping with R", "Infographics in PowerPoint", "Reproducibility: Data Management, Git, and RStudio", 
 "Adobe Illustrator for Diagrams", "Visualization in R using ggplot2", 
 "Intro to ArcGIS Pro", "Introduction to Stata", "Custom Interactive Diagrams in LucidChart", 
 "Introduction to the Open Science Framework", "Story Maps with ArcGIS Online", 
-"Map Design", "Getting Started with NVivo 11 for Windows", "OSF + TIER Protocol: Designing a reproducible workflow", 
+"Map Design", "Getting Started with NVivo 11 for Windows", "OSF + TIER Protocol: Designing a reproducible workflow", "Intro to R: Data Transformations, Analysis, and Data Structures", 
 "Designing Effective Academic Posters", "Developing a Good Informed Consent Process", 
 "Introduction to Stata", "Publishing Data with Research and Other Strategies for Increasing Your Impact", 
 "Managing Sensitive Data"), presenter = c("Eric Monson", "Angela Zoss", 
@@ -136,23 +141,23 @@ dvs_workshops_spring_2018_master_20180105 <- structure(list(workshop_id = c("373
 "John Little", "Eric Monson", "John Little & Sophia Lafferty-Hess", 
 "Eric Monson", "Angela Zoss", "Mark Thomas", "Ryan Denniston", 
 "Angela Zoss", "Mara Sedlins & Sophia Lafferty-Hess", "Drew Keener", 
-"Drew Keener", "Brittany Wofford & Mara Sedlins", "Mara Sedlins & Sophia Lafferty-Hess", 
+"Drew Keener", "Brittany Wofford & Mara Sedlins", "Mara Sedlins & Sophia Lafferty-Hess", "John Little & Joel Herndon",
 "Angela Zoss & Eric Monson", "Jen Darragh, Holly Williams-Stafford", 
 "Ryan Denniston", "Haley Walton, Mara Sedlins & Sophia Lafferty-Hess", 
 "Jen Darragh & Mara Sedlins & Andy Ingham, & Holly Williams-Stafford"
 ), workshop_duration_minutes = c(120, 60, 120, 120, 120, 120, 
 120, 120, 120, 120, 120, 120, 120, 120, 120, 60, 120, 90, 90, 
-120, 120, 120, 120, 120, 90), workshop_begins = structure(c(1515765600, 
+120, 120, 120, 120, 120, 120, 90), workshop_begins = structure(c(1515765600, 
 1516122000, 1516384800, 1516633200, 1516716000, 1516816800, 1516888800, 
 1516903200, 1516975200, 1517248800, 1517320800, 1517495400, 1517853600, 
 1518026400, 1518184800, 1518620400, 1518631200, 1519065000, 1519243200, 
-1519668000, 1520344800, 1520449200, 1520521200, 1522260000, 1522861200
+1519668000, 1519830000, 1520344800, 1520449200, 1520521200, 1522260000, 1522861200
 ), tzone = "America/New_York", class = c("POSIXct", "POSIXt")), 
     workshop_ends = structure(c(1515772800, 1516125600, 1516392000, 
     1516640400, 1516723200, 1516824000, 1516896000, 1516910400, 
     1516982400, 1517256000, 1517328000, 1517502600, 1517860800, 
     1518033600, 1518192000, 1518624000, 1518638400, 1519070400, 
-    1519248600, 1519675200, 1520352000, 1520456400, 1520528400, 
+    1519248600, 1519675200, 1519837200, 1520352000, 1520456400, 1520528400, 
     1522267200, 1522866600), tzone = "America/New_York", class = c("POSIXct", 
     "POSIXt")), description = c("Tableau Public (available for both Windows and Mac) is free software that allows individuals to quickly and easily explore their data with a wide variety of visual representations, as well as create interactive web-based visualization dashboards. This workshop will focus on using Tableau Public to create data visualizations, starting with an overview of how the program thinks about data, common data manipulation and loading, and the terminology used. Activities will include a sample data visualization and mapping project, which will give people hands-on experience using Tableau’s basic chart types and dashboard creation tools. We will also discuss publishing to the Tableau Public web server and related services and tools, like the full Tableau Desktop application (free for full-time students).", 
     "Data visualization is an increasingly important skill for researchers in all disciplines, but design skills are seldom taught explicitly.  This talk will focus on a few basic design principles than can help you improve your visualizations, regardless of your discipline or choice of software.  We will cover effective design choices for visualization and how to get started when visualizing your data.", 
@@ -174,6 +179,7 @@ dvs_workshops_spring_2018_master_20180105 <- structure(list(workshop_id = c("373
     "Making maps is a creative rather than a purely technical process. Even if you can expertly use the latest and most advanced tools, you still have to make design decisions based on your specific audience, data, and goals. This workshop will present an overview of concepts in cartography and provide practical techniques for creating effective, visually appealing maps. We will explore design principles by analyzing plenty of examples. No specific software experience or GIS knowledge is required.", 
     "This workshop will introduce researchers to the basics of NVivo 11 Pro for Windows, a qualitative data analysis software. Participants will learn the foundations needed to begin analyzing data in NVivo. Topics will include how to import data, create nodes and code, and  run basic queries. Although Mac users are welcome to attend, this workshop will primarily focus on using NVivo in the Windows environment, though we will discuss some of the differences between the two versions of the software.", 
     "The Open Science Framework is a free online system for managing and sharing research materials throughout the research cycle, and the TIER Protocol is a workflow for maintaining well-organized documentation of your data and analyses. This workshop will introduce you to key features of the OSF and demonstrate how it can be used in conjunction with TIER to facilitate reproducible research practices, collaboration, and best practices in data management.", 
+    "A gentle introduction to the basics of R using RStudio. Learn about managing your R projects, data types, variable assignments, data structures, and packages such as: tidyverse (including dplyR).  Students will also gain brief introductions to visualizaton with ggvis and mapping with leaflet. Attendees will have the opportunity of supplementing the materials covered in this workshop with free academic access to the interactive training at DataCamp.com.",
     "Presenting research in an accurate and visually appealing way can have a huge impact on the communication of research to a broader audience. Academic posters are some of the most visual outputs of a research project, and becoming familiar with good strategies for poster design allows researchers to take full advantage of the opportunity to network with colleagues and promote their own research. This workshop will cover basic considerations for designing effective academic posters, including use of color, layout, fonts/typography, and software choices. Hands-on activities throughout the workshop will also help participants gain comfort with how to apply general principles to the design of a real poster.  This workshop will focus on PowerPoint for poster creation, but many of the techniques will apply to more powerful programs like Adobe Illustrator.", 
     "In this forum you will learn how to develop fully comprehensible, participant-friendly consent protocols. With numerous research funders and journal publishers requiring data management and sharing plans, consent forms and protocols need to address how participant privacy will be protected throughout a project’s lifecycle and how and what data will be shared. The workshop includes interactive exercises where you will assess consent form language to ensure that it is appropriate for the target study population and addresses data sharing in a responsible way. ", 
     "Stata for Research focuses on the core concepts of using Stata. This workshop provides a hands on overview of how to load, manage, and analyze data using Stata. The workshop will also include a brief introduction to Stata graphics as well. No previous experience with Stata is required.", 
@@ -188,10 +194,15 @@ dvs_workshops_spring_2018_master_20180105 <- structure(list(workshop_id = c("373
     "https://duke.libcal.com/event/3735207", "https://duke.libcal.com/event/3742735", 
     "https://duke.libcal.com/event/3433956", "https://duke.libcal.com/event/3735229", 
     "https://duke.libcal.com/event/3731660", "https://duke.libcal.com/event/3905863", 
-    "https://duke.libcal.com/event/3770373", "https://duke.libcal.com/event/3869275", 
-    "https://duke.libcal.com/event/3731669", "https://duke.libcal.com/event/3735220", 
-    "https://duke.libcal.com/event/3735957", "https://duke.libcal.com/event/3433957", 
-    "https://duke.libcal.com/event/3776408", "https://duke.libcal.com/event/3735965"
+    "https://duke.libcal.com/event/3770373",
+    "https://duke.libcal.com/event/3869275", 
+    "https://duke.libcal.com/event/3731669",
+    "https://duke.libcal.com/event/3997795",
+    "https://duke.libcal.com/event/3735220", 
+    "https://duke.libcal.com/event/3735957",
+    "https://duke.libcal.com/event/3433957", 
+    "https://duke.libcal.com/event/3776408",
+    "https://duke.libcal.com/event/3735965"
     ), location = c("Bostock 023 Training Room", "Perkins 217", 
     "Bostock 023 Training Room", "Bostock 023 Training Room", 
     "Bostock 023 Training Room", "Perkins 217", "Bostock 023 Training Room", 
@@ -200,13 +211,13 @@ dvs_workshops_spring_2018_master_20180105 <- structure(list(workshop_id = c("373
     "Bostock 023 Training Room", "Bostock 023 Training Room", 
     "Bostock 023 Training Room", "Bostock 023 Training Room", 
     "Bostock 023 Training Room", "Perkins 218", "Perkins 218", 
-    "Bostock 023 Training Room", "Bostock 023 Training Room", 
-    "Bostock 023 Training Room", "Perkins 217", "Bostock 023 Training Room", 
-    "Perkins 217", "Perkins 217")), .Names = c("workshop_id", 
+    "Bostock 023 Training Room", "Bostock 023 Training Room", "Bostock 023 Training Room",
+    "Bostock 023 Training Room", "Rubenstein Library 153 (Holsti-Anderson Family Assembly Room)", "Bostock 023 Training Room", 
+    "Perkins 217", "Rubenstein Library 153 (Holsti-Anderson Family Assembly Room)")), .Names = c("workshop_id", 
 "date", "title", "presenter", "workshop_duration_minutes", "workshop_begins", 
 "workshop_ends", "description", "registration_link", "location"
 ), class = c("tbl_df", "tbl", "data.frame"), row.names = c(NA, 
--25L))
+-26L))
 
 #write_delim(dvs_workshops_spring_2018_master_20180105, path = ".", delim = "\t")
 ```
