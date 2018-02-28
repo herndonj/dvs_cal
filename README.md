@@ -1,6 +1,6 @@
 # DVS Calendar
 
-This repository contains a mixture of handy scripts and datasets used by [Data and Visualization Services](library.duke.edu/data) in the process of marketing, assessing, and managing our [DVS Workshop Series](library.duke.edu/news).
+This repository contains a mixture of handy scripts and datasets used by [Data and Visualization Services](library.duke.edu/data) for marketing, assessing, and managing our [DVS Workshop Series](library.duke.edu/news).
 
 This repository is a work in progress, but current contents include:
 
