@@ -1,0 +1,18 @@
+---
+title: "Marketing Emails"
+author: "Joel Herndon"
+date: "2018-09-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+tmp <- paste0(format(dvs_workshops_fall_2018_master_20180903$date, format="%m-%d-%Y"),' - ','<a href="',dvs_workshops_fall_2018_master_20180903$registration_link,'">',dvs_workshops_fall_2018_master_20180903$title,'</a>')
+fileConn <- file("output.txt")
+writeLines(tmp, fileConn)
+close(fileConn)
+```
+
