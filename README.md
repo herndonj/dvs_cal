@@ -4,7 +4,7 @@ This repository contains a mixture of handy scripts and datasets used by [Data a
 
 This repository is a work in progress, but current contents include:
 
-* **dvs_cal.Rmd** - a handy script if you'd like to see our fall 2018, spring 2018, and fall 2017 Workshop Series as data frames.
+* **dvs_cal.Rmd** - a handy script if you'd like to see our workshop series as data frames.
 * **rvestLibcalCode.R** - In DVS, we use Springshare's LibCal service to manage our registrations and workshop descriptions- this script pulls the current list of public workshops into a data frame for further management and analysis (warning - the list will only reflect upcoming workshops.  If you need to see workshops since the fall of 2017, check out the dvs_cal.Rmd script which will generate dataframes by semester.)
 
 ##Changes in Registration Form
